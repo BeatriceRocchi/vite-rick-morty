@@ -2,12 +2,14 @@
 import axios from "axios";
 import Header from "./components/Header.vue";
 import Main from "./components/Main.vue";
+import Footer from "./components/Footer.vue";
 import { store } from "./data/store";
 
 export default {
   components: {
     Header,
     Main,
+    Footer,
   },
   data() {
     return {
@@ -35,6 +37,7 @@ export default {
 <template>
   <Header />
   <Main />
+  <Footer />
 </template>
 
 <style lang="scss">

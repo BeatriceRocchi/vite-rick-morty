@@ -29,6 +29,13 @@ export default {
 @import "../../assets/scss/partials/variables";
 .custom_card {
   border: none;
-  box-shadow: 0 0 10px rgba($color-dark, 0.5);
+  box-shadow: 0 0 5px rgba($color-dark, 0.5);
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba($color-dark, 0.5);
+    transform: scale(1.1);
+    transition: all 0.5s;
+  }
 }
 </style>

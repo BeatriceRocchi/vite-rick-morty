@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template>
-  <main class="container d-flex justify-content-center flex-wrap">
+  <main class="container d-flex justify-content-center flex-wrap my-4">
     <Card
       v-for="card in store.cardList"
       :key="card.id"
