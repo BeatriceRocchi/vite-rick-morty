@@ -1,5 +1,5 @@
 <script>
-import Card from "./Card.vue";
+import Card from "./partials/Card.vue";
 import { store } from "../data/store";
 export default {
   components: {
@@ -14,8 +14,15 @@ export default {
 </script>
 
 <template>
-  <main>
-    <Card />
+  <main class="container">
+    <Card
+      v-for="card in store.cardList"
+      :key="card.id"
+      :name="card.name"
+      :status="card.status"
+      :species="card.species"
+      :imageUrl="card.image"
+    />
   </main>
 </template>
 
