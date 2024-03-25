@@ -10,7 +10,14 @@ export default {
 </script>
 
 <template>
-  <header>{{ store.counter }}</header>
+  <header>
+    <h1>- Rick & Morty -</h1>
+    <div>Box comandi</div>
+  </header>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+header {
+  text-align: center;
+}
+</style>

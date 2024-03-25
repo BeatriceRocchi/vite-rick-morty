@@ -1,6 +1,10 @@
 <script>
+import Card from "./Card.vue";
 import { store } from "../data/store";
 export default {
+  components: {
+    Card,
+  },
   data() {
     return {
       store,
@@ -11,7 +15,7 @@ export default {
 
 <template>
   <main>
-    <button @click="store.counter++">Incrementa counter</button>
+    <Card />
   </main>
 </template>
 
