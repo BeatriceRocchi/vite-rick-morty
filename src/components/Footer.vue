@@ -11,7 +11,7 @@ export default {
 
 <template>
   <footer class="text-center">
-    <p>Risultati trovati: {{ store.cardList.length }}</p>
+    <p>Risultati trovati: {{ store.count }}</p>
   </footer>
 </template>
 

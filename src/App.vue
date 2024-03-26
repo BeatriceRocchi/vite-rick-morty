@@ -19,9 +19,12 @@ export default {
   methods: {
     getApi() {
       axios
-        .get(this.store.apiUrl)
+        .get(this.store.apiUrl, {
+          params: store.queryParams,
+        })
         .then((result) => {
           this.store.cardList = result.data.results;
+          this.store.count = result.data.info.count;
         })
         .catch((error) => {
           console.log(error);
@@ -35,7 +38,7 @@ export default {
 </script>
 
 <template>
-  <Header />
+  <Header @startSearch="getApi" />
   <Main />
   <Footer />
 </template>

@@ -6,6 +6,11 @@ export default {
       store,
     };
   },
+  methods: {
+    startSearch() {
+      this.$emit("startSearch");
+    },
+  },
 };
 </script>
 
@@ -18,6 +23,8 @@ export default {
         class="form-control me-3 w-25"
         id="searchCharacter"
         placeholder="Search Character"
+        v-model="store.queryParams.name"
+        @keyup.enter="startSearch"
       />
       <select class="form-select me-3 w-25" aria-label="Default select example">
         <option selected>Select Status</option>
@@ -25,7 +32,7 @@ export default {
         <option value="2">Death</option>
         <option value="3">Unknown</option>
       </select>
-      <button class="btn btn-info me-3">Search</button>
+      <button class="btn btn-info me-3" @click="startSearch">Search</button>
       <button class="btn btn-warning">Reset</button>
     </div>
   </header>
