@@ -25,6 +25,7 @@ export default {
         .then((result) => {
           this.store.cardList = result.data.results;
           this.store.count = result.data.info.count;
+          this.store.pages = result.data.info.pages;
         })
         .catch((error) => {
           console.log(error);
@@ -41,7 +42,7 @@ export default {
 <template>
   <Header @startSearch="getApi" @resetSearch="getApi" />
   <Main />
-  <Footer />
+  <Footer @changePage="getApi" />
 </template>
 
 <style lang="scss">

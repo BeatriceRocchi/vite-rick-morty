@@ -10,5 +10,6 @@ export const store = reactive({
   },
   cardList: [],
   count: 0,
+  pages: 0,
   errorString: "",
 });
