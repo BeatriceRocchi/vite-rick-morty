@@ -17,6 +17,10 @@ export default {
     };
   },
   methods: {
+    // getAllStatusAndSpecies recupera tutti gli status e le species e va fatta una sola volta al mounted. Deve terminare tutte le chiamate prima del caricamento dei primi 20 risultati con getApi.
+    // 1. API per recuperare il numero totale di pagine da salvare in totalPages. La chiamata deve terminare prima di poter procedere con il ciclo for (altrimenti non avrei il totalPages)
+    // 2. Ciclo for di chiamate API in cui cambia il parametro page. Ad ogni ciclo la chiamata viene fatta alla pagina successiva sino ad arrivare all'ultima pagina. Nota: occorre fare più chiamate perchè di default la chiamata API per come è stata costruita restituisce al massimo 20 risultati
+    // 3. Ad ogni ciclo, popolamento degli array statusList e speciesList con elementi univoci
     async getAllStatusAndSpecies() {
       const totalPages = await axios
         .get(this.store.apiUrl)
@@ -40,9 +44,8 @@ export default {
             });
           });
       }
-      console.log(this.store.statusList);
-      console.log(this.store.speciesList);
     },
+    // getApi effettua la chiamata per popolare la pagina al mounted e/o ad ogni search o reset
     getApi() {
       axios
         .get(this.store.apiUrl, {
