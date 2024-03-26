@@ -18,6 +18,7 @@ export default {
         status: "",
         species: "",
       };
+      this.store.errorString = "";
       this.$emit("resetSearch");
     },
   },
@@ -34,7 +35,7 @@ export default {
         id="searchCharacter"
         placeholder="Search Character"
         v-model="store.queryParams.name"
-        @keyup.enter="startSearch"
+        @keyup="startSearch"
       />
       <select class="form-select me-3 w-25" aria-label="Default select example">
         <option selected>Select Status</option>

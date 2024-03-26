@@ -29,7 +29,6 @@ export default {
         .catch((error) => {
           console.log(error);
           this.store.errorString = "Non sono presenti risultati";
-          console.log(this.store.errorString);
         });
     },
   },
