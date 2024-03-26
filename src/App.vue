@@ -17,32 +17,42 @@ export default {
     };
   },
   methods: {
+    async getAllStatusAndSpecies() {
+      const totalPages = await axios
+        .get(this.store.apiUrl)
+        .then((result) => result.data.info.pages);
+
+      for (let i = 0; i < totalPages; i++) {
+        await axios
+          .get(this.store.apiUrl, {
+            params: {
+              page: i + 1,
+            },
+          })
+          .then((result) => {
+            result.data.results.forEach((item) => {
+              if (!this.store.statusList.includes(item.status)) {
+                this.store.statusList.push(item.status);
+              }
+              if (!this.store.speciesList.includes(item.species)) {
+                this.store.speciesList.push(item.species);
+              }
+            });
+          });
+      }
+      console.log(this.store.statusList);
+      console.log(this.store.speciesList);
+    },
     getApi() {
       axios
         .get(this.store.apiUrl, {
-          params: store.queryParams,
+          params: this.store.queryParams,
         })
         .then((result) => {
           this.store.errorString = "";
-          this.store.statusList = [];
-          this.store.speciesList = [];
           this.store.cardList = result.data.results;
           this.store.count = result.data.info.count;
           this.store.pages = result.data.info.pages;
-
-          // Mappatura possibili status
-          result.data.results.forEach((item) => {
-            if (!this.store.statusList.includes(item.status)) {
-              this.store.statusList.push(item.status);
-            }
-          });
-
-          // Mappatura possibili species
-          result.data.results.forEach((item) => {
-            if (!this.store.speciesList.includes(item.species)) {
-              this.store.speciesList.push(item.species);
-            }
-          });
         })
         .catch((error) => {
           console.log(error);
@@ -51,6 +61,7 @@ export default {
     },
   },
   mounted() {
+    this.getAllStatusAndSpecies();
     this.getApi();
   },
 };
