@@ -19,7 +19,6 @@ export default {
         status: "",
         species: "",
       };
-      this.store.errorString = "";
       this.$emit("resetSearch");
     },
   },
@@ -46,9 +45,13 @@ export default {
         v-model="store.queryParams.status"
       >
         <option disabled value="">Select Status</option>
-        <option value="alive">Alive</option>
-        <option value="dead">Dead</option>
-        <option value="unknown">Unknown</option>
+        <option
+          v-for="(status, index) in store.statusList"
+          :value="status"
+          :key="`status-${index}`"
+        >
+          {{ status }}
+        </option>
       </select>
       <!-- Search by species (select) -->
       <select
@@ -57,10 +60,13 @@ export default {
         v-model="store.queryParams.species"
       >
         <option disabled value="">Select Species</option>
-        <option value="human">Human</option>
-        <option value="alien">Alien</option>
-        <option value="humanoid">Humanoid</option>
-        <option value="unknown">Unknown</option>
+        <option
+          v-for="(specie, index) in store.speciesList"
+          :value="specie"
+          :key="`specie-${index}`"
+        >
+          {{ specie }}
+        </option>
       </select>
       <button class="btn btn-info me-3" @click="startSearch">Search</button>
       <button class="btn btn-warning" @click="resetSearch">Reset</button>

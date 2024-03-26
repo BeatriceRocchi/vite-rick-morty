@@ -9,6 +9,8 @@ export const store = reactive({
     species: "",
   },
   cardList: [],
+  statusList: [],
+  speciesList: [],
   count: 0,
   pages: 0,
   errorString: "",

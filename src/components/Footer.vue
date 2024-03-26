@@ -9,7 +9,6 @@ export default {
   methods: {
     nextPage(isNext) {
       isNext ? this.store.queryParams.page++ : this.store.queryParams.page--;
-      console.log(this.store.queryParams.page);
       this.$emit("changePage");
     },
   },
