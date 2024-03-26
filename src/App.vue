@@ -28,6 +28,8 @@ export default {
         })
         .catch((error) => {
           console.log(error);
+          this.store.errorString = "Non sono presenti risultati";
+          console.log(this.store.errorString);
         });
     },
   },
@@ -38,7 +40,7 @@ export default {
 </script>
 
 <template>
-  <Header @startSearch="getApi" />
+  <Header @startSearch="getApi" @resetSearch="getApi" />
   <Main />
   <Footer />
 </template>

@@ -10,4 +10,5 @@ export const store = reactive({
   },
   cardList: [],
   count: 0,
+  errorString: "",
 });

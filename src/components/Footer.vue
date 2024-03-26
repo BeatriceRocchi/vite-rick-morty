@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-  <footer class="text-center">
+  <footer class="text-center" v-if="store.errorString === ''">
     <p>Risultati trovati: {{ store.count }}</p>
   </footer>
 </template>

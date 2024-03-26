@@ -10,6 +10,16 @@ export default {
     startSearch() {
       this.$emit("startSearch");
     },
+
+    resetSearch() {
+      this.store.queryParams = {
+        page: 1,
+        name: "",
+        status: "",
+        species: "",
+      };
+      this.$emit("resetSearch");
+    },
   },
 };
 </script>
@@ -33,7 +43,7 @@ export default {
         <option value="3">Unknown</option>
       </select>
       <button class="btn btn-info me-3" @click="startSearch">Search</button>
-      <button class="btn btn-warning">Reset</button>
+      <button class="btn btn-warning" @click="resetSearch">Reset</button>
     </div>
   </header>
 </template>
