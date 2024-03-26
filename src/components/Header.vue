@@ -46,7 +46,7 @@ export default {
       >
         <option disabled value="">Select Status</option>
         <option value="alive">Alive</option>
-        <option value="death">Death</option>
+        <option value="dead">Dead</option>
         <option value="unknown">Unknown</option>
       </select>
       <!-- Search by species (select) -->
