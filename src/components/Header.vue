@@ -8,6 +8,7 @@ export default {
   },
   methods: {
     startSearch() {
+      this.store.queryParams.page = 1;
       this.$emit("startSearch");
     },
 
